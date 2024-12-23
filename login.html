@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    Email: <input type="text" name="email" id="email" placeholder="Enter your email">
+    Password: <input type="password" name="password" id="password" placeholder="Enter your password">
+    <button onclick="getlogin()" id="login">Login</button>
+    <br>
+    <a href="index.html">Back to Signup</a>
+    <script>
+    function getlogin(){
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if(!email || !password) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        let storedEmail = JSON.parse(localStorage.getItem("email"));
+        let storedPassword = JSON.parse(localStorage.getItem("password"));
+
+        if(email === storedEmail && password === storedPassword) {
+            alert("Login successful!");
+            window.location.href = "index.html";
+        } else {
+            alert("Invalid credentials!");
+        }
+    }
+    </script>
+
+</body>
+</html>

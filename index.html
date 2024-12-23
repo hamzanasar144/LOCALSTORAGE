@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    Username: <input type="text" name="name" id="name" placeholder="Enter your name">
+    <br>
+    Email::<input type="text" name="email" id="email" placeholder="Enter your email">
+    <br>
+    password:<input type="text" name="password" id="password" placeholder="Enter your password">
+    <br>
+    <button onclick="getsave()" id="save">Save</button>
+    <br>
+    <a href="login.html" id="login">login</a>
+<script>
+    function getsave(){
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if(name && email && password) {
+            localStorage.setItem("name", JSON.stringify(name));
+            localStorage.setItem("email", JSON.stringify(email)); 
+            localStorage.setItem("password", JSON.stringify(password));
+            alert("Signup successful!");
+        } else {
+            alert("Please fill all fields");
+        }
+    }
+    // function getload(){
+    //     localStorage.getItem("name");
+    // }
+</script>
+</body>
+</html>
